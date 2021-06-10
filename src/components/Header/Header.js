@@ -4,7 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { createMuiTheme, TextField, ThemeProvider } from '@material-ui/core';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Header () {
     const [openInput, setOpenInput] = useState(false);
@@ -69,9 +69,7 @@ function Header () {
     return (
         <div className="header-wrapper">
             <div className='header'>
-                <Link to='/'>
                     <p className='header-title'>News</p>
-                </Link>
                 <div>
                     <form onSubmit={(e)=>handleSubmit(e)}>
                     {openInput ? 
