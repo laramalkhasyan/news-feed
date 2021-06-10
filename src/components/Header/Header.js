@@ -32,10 +32,12 @@ function Header () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        history.push({
-            pathname: '/search',
-            state: { inputText }
-        })
+        if(inputText){
+            history.push({
+                pathname: '/search',
+                state: { inputText }
+            })
+        }
         setOpenInput(false);
         setInputText('')
     }
