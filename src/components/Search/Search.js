@@ -75,7 +75,14 @@ function Search (props) {
                 const temp = searchData.concat(res.data.articles)
                 setSearchData(temp)
             })
-        }else {
+        } else if(!(countryFilter || categoryFilter)) {
+            getSearchedSources(props.location.state.data,page).then(res=>{
+                const temp = searchData.concat(res.data.articles)
+                setSearchData(temp)
+                setFormSearch(false)
+            })
+        }
+        else {
             getFilteredHeadlines(countryFilter, categoryFilter, page).then(res=>{
                 const temp = searchData.concat(res.data.articles)
                 setSearchData(temp)
@@ -109,13 +116,13 @@ function Search (props) {
                             </div>
                             {
                                 !sourceFilter ? 
-                                <><FilterItem filterTitle='Country' filterItems={countryList} setFilter={setCountryFilter}/>
-                                <FilterItem filterTitle='Category' filterItems={categoryList} setFilter={setCategoryFilter}/></> : null
+                                <><FilterItem filterTitle='Country' filterItems={countryList} setFilter={(filter)=> setCountryFilter(filter)}/>
+                                <FilterItem filterTitle='Category' filterItems={categoryList} setFilter={(filter)=> setCategoryFilter(filter)}/></> : null
                             }
                             
                             {
                                 !(countryFilter || categoryFilter) ?
-                                <FilterItem filterTitle='Source' filterItems={sourceList} setFilter={setSourceFilter}/>: null}
+                                <FilterItem filterTitle='Source' filterItems={sourceList} setFilter={(filter)=>setSourceFilter(filter)}/>: null}
                         </div>
                     </Grid>
                     <Grid item xs={8}>

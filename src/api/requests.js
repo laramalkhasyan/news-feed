@@ -10,8 +10,8 @@ export async function getFilteredSources (category, language, country) {
     return data.data.sources;
 }
 
-export async function getSearchedSources (item) {
-    const data = await api.get('/v2/everything', { params: { sources: item.id, pageSize: 20 } } );
+export async function getSearchedSources (item,page=1) {
+    const data = await api.get('/v2/everything', { params: { sources: item.id, pageSize: 20,page } } );
     return data;
 }
 
