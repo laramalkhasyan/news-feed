@@ -1,0 +1,16 @@
+.home {
+    margin-top: 85px;
+}
+.home-title-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.home-title {
+    font-size: 25px;
+}
+.home-list-wrapper {
+    padding: 0 2rem;
+}
