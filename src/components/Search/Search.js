@@ -66,7 +66,7 @@ function Search (props) {
     },[])
 
     const fetchData = () => {
-        const page = searchData.length / 20 + 1;
+        const page = searchData?.length / 20 + 1;
         if((searchData?.length % 20) !== 0){
             setHasMore(false)
         }
