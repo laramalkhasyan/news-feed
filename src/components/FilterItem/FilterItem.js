@@ -1,5 +1,5 @@
-import { Checkbox, FormControlLabel, FormGroup, Grid, Radio, RadioGroup, Typography } from '@material-ui/core'
-import React, { useEffect, useState } from 'react'
+import { FormControlLabel, FormGroup, Grid, Radio, RadioGroup, Typography } from '@material-ui/core'
+import React, { useState } from 'react'
 import './FilterItem.css'
 import getCountryName from '../../utils/getCountryName';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
@@ -20,16 +20,13 @@ function FilterItem (props) {
     const [checked, setChecked] = useState('');
     const classes = useStyles();
 
-    useEffect(()=>{
-        props.setFilter(checked)
-    },[checked])
-
     const handleChange = event => {
         if (event.target.value === checked) {
             setChecked('')
         } else {
             setChecked(event.target.value)
         }
+        props.setFilter(checked)
     }
     
 
